@@ -2,7 +2,7 @@ See tests.php
 
 =============
 
-´´´ php
+```php
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -16,5 +16,5 @@ $chars[1]->after('!');
 echo $chars, PHP_EOL;
 
 // Hi => Hi!
-´´´
+```
 
