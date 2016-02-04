@@ -1,7 +1,7 @@
 {
     "name": "tyurderi/string",
     "description": "A string manipulation helper library.",
-    "type": "PHP Library",
+
     "license": "MIT",
     "authors": [
         {
