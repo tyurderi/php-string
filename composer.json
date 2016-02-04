@@ -8,10 +8,12 @@
             "email": "tyurderi@yahoo.de"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "String\\": "src/"
         }
+    },
+    "require": {
+        "php": ">=5.3.0"
     }
 }
