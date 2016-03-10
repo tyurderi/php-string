@@ -9,17 +9,14 @@ class StaticChar
 
     protected $position = 0;
 
-    protected $parent   = null;
-
     protected $prev     = null;
 
     protected $next     = null;
 
-    public function __construct($value, $position = 0, StaticString $parent = null)
+    public function __construct($value, $position = 0)
     {
         $this->value    = $value;
         $this->position = $position;
-        $this->parent   = $parent;
     }
 
     public function __toString()
@@ -27,9 +24,9 @@ class StaticChar
         return $this->value;
     }
 
-    public function prev(StaticChar $prev = null)
+    public function prev(StaticChar $prev = null, $forceSet = false)
     {
-        if($prev)
+        if($prev || $forceSet === true)
         {
             $this->prev = $prev;
         }
@@ -37,9 +34,9 @@ class StaticChar
         return $this->prev;
     }
 
-    public function next(StaticChar $next = null)
+    public function next(StaticChar $next = null, $forceSet = false)
     {
-        if($next)
+        if($next || $forceSet === true)
         {
             $this->next = $next;
         }

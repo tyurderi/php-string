@@ -18,18 +18,7 @@ class StaticString implements \ArrayAccess, \Iterator
         $this->value  = (string) $value;
         $this->length = strlen($this->value);
 
-        for($i = 0; $i < $this->length(); $i++)
-        {
-            $char = new StaticChar($this->value[$i], $i, $this);
-            $char->prev($i == 0 ? null : $this->chars[$i - 1]);
-
-            if($char->prev())
-            {
-                $char->prev()->next($char);
-            }
-
-            $this->chars[] = $char;
-        }
+        $this->parse();
     }
 
     public function __toString()
@@ -103,6 +92,24 @@ class StaticString implements \ArrayAccess, \Iterator
     public function key()
     {
         return $this->position;
+    }
+
+    protected function parse()
+    {
+        $this->chars = array();
+
+        for($i = 0; $i < $this->length(); $i++)
+        {
+            $char = new StaticChar($this->value[$i], $i);
+
+            if($prev = $this->offsetGet($i - 1))
+            {
+                $char->prev($prev);
+                $prev->next($char);
+            }
+
+            $this->chars[] = $char;
+        }
     }
 
 }
