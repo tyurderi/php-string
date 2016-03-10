@@ -52,7 +52,7 @@ class StaticChar
         $this->position = $position;
     }
 
-    public function value()
+    public function str()
     {
         return $this->value;
     }
