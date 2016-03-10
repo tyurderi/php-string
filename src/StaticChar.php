@@ -57,4 +57,30 @@ class StaticChar
         return $this->value;
     }
 
+    public function match($pattern)
+    {
+        return preg_match($pattern, $this->str());
+    }
+
+    public function is($string)
+    {
+        $length = strlen($string);
+        if($length == 1)
+        {
+            return $string == $this->str();
+        }
+
+        $buffer = '';
+        $char   = $this;
+
+        while($char && $length > 0)
+        {
+            $buffer .= $char;
+            $char    = $char->next();
+            $length -= 1;
+        }
+        
+        return $buffer === $string;
+    }
+
 }
