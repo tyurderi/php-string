@@ -68,6 +68,21 @@ class MutateableString implements \ArrayAccess
                 $this->chars[] = $char;
             }
         }
+        else
+        {
+            /** @var Char $char */
+            $char        = $this->chars[0];
+            $this->chars = array();
+            $i           = 0;
+
+            while($char)
+            {
+                $char->position($i);
+                $this->chars[] = $char;
+
+                $char = $char->next();
+            }
+        }
     }
 
     public function offsetExists($offset)

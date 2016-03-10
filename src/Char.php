@@ -52,4 +52,9 @@ class Char
         $this->value = $value;
     }
 
+    public function position($position)
+    {
+        $this->position = $position;
+    }
+
 }
