@@ -2,7 +2,7 @@
 
 namespace WCKZ\StringUtil;
 
-class Char
+class StaticChar
 {
 
     protected $value    = '';
@@ -15,7 +15,7 @@ class Char
 
     protected $next     = null;
 
-    public function __construct($value, $position = 0, MutateableString $parent = null)
+    public function __construct($value, $position = 0, StaticString $parent = null)
     {
         $this->value    = $value;
         $this->position = $position;
@@ -27,7 +27,7 @@ class Char
         return $this->value;
     }
 
-    public function prev($prev = null)
+    public function prev(StaticChar $prev = null)
     {
         if($prev)
         {
@@ -37,7 +37,7 @@ class Char
         return $this->prev;
     }
 
-    public function next($next = null)
+    public function next(StaticChar $next = null)
     {
         if($next)
         {
@@ -47,14 +47,14 @@ class Char
         return $this->next;
     }
 
-    public function set($value)
-    {
-        $this->value = $value;
-    }
-
     public function position($position)
     {
         $this->position = $position;
+    }
+
+    public function value()
+    {
+        return $this->value;
     }
 
 }

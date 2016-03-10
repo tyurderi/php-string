@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'String\\' => array($baseDir . '/src'),
+    'WCKZ\\StringUtil\\' => array($baseDir . '/src'),
 );
