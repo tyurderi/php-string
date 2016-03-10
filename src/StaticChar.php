@@ -79,7 +79,7 @@ class StaticChar
             $char    = $char->next();
             $length -= 1;
         }
-        
+
         return $buffer === $string;
     }
 
