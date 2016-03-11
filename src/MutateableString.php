@@ -57,6 +57,11 @@ class MutateableString extends StaticString
             }
         }
 
+        while($char->prev() !== null)
+        {
+            $char = $char->prev();
+        }
+
         return $char;
     }
 

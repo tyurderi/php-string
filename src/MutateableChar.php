@@ -18,6 +18,7 @@ class MutateableChar extends StaticChar
     {
         $char = new MutateableChar($value, -1, $this->parent);
         $char->next($this);
+        $char->prev($this->prev(), true);
 
         if($this->prev())
         {
@@ -34,6 +35,7 @@ class MutateableChar extends StaticChar
     {
         $char = new MutateableChar($value, -1, $this->parent);
         $char->prev($this);
+        $char->next($this->next(), true);
 
         if($this->next())
         {

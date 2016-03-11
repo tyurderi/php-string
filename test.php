@@ -8,6 +8,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$pattern = new WCKZ\StringUtil\StaticString('Hello World');
+$pattern = new WCKZ\StringUtil\MutateableString('Hello World');
 
-var_dump();
+$pattern[0]->after('H');
+
+echo $pattern, PHP_EOL;
