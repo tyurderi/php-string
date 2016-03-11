@@ -59,12 +59,14 @@ class StaticChar
         return preg_match($pattern, $this->str());
     }
 
-    public function is($string)
+    public function is($string, $caseSensitive = true)
     {
         $length = strlen($string);
         if($length == 1)
         {
-            return $string == $this->str();
+            return $caseSensitive ? 
+                $string == $this->str() :
+                strtolower($string) == strtolower($this->str());
         }
 
         $buffer = '';
@@ -77,7 +79,9 @@ class StaticChar
             $length -= 1;
         }
 
-        return $buffer === $string;
+        return $caseSensitive ?
+            $buffer === $string :
+            strtolower($buffer) == strtolower($string);
     }
 
 }
