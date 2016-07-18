@@ -64,7 +64,7 @@ class StaticChar
         $length = strlen($string);
         if($length == 1)
         {
-            return $caseSensitive ? 
+            return $caseSensitive ?
                 $string == $this->str() :
                 strtolower($string) == strtolower($this->str());
         }
